@@ -1,0 +1,38 @@
+{
+  "name": "@prologue/backend",
+  "version": "0.1.0",
+  "description": "Prologue Admin Tool BFF (POC, sprint-01)",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "node --env-file=.env --import tsx/esm --watch src/server.ts",
+    "start": "node dist/server.js",
+    "lint": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "helmet": "^7.2.0",
+    "pino": "^10.1.0",
+    "pino-http": "^10.4.0",
+    "prom-client": "^15.1.3",
+    "zod": "^3.23.8",
+    "zod-to-json-schema": "^3.23.5"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.10.5",
+    "@types/supertest": "^6.0.2",
+    "supertest": "^7.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.9.0",
+    "vitest": "^2.1.8"
+  }
+}

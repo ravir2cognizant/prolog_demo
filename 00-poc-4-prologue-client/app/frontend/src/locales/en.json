@@ -1,0 +1,148 @@
+{
+  "app": {
+    "title": "Prologue Admin Tool",
+    "loading": "Loading...",
+    "error": {
+      "generic": "Something went wrong. Please try again.",
+      "notFound": "Not found"
+    }
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "add": "Add",
+    "edit": "Edit",
+    "close": "Close",
+    "submit": "Submit",
+    "yes": "Yes",
+    "no": "No",
+    "required": "Required",
+    "optional": "Optional"
+  },
+  "nav": {
+    "search": "Search navigation",
+    "headerName": "Prologue",
+    "headerTitle": "Admin Tool",
+    "comingSoon": "Coming soon"
+  },
+  "comingSoon": {
+    "title": "Coming soon",
+    "message": "This area is part of a future sprint."
+  },
+  "navMenuPage": {
+    "title": "Navigation Menu",
+    "intro": "Browse the navigation tree below."
+  },
+  "je": {
+    "headerTitle": "Journal Entry Header",
+    "formTitleCreate": "Create Journal Entry",
+    "formTitleEdit": "Edit Journal Entry",
+    "fields": {
+      "journalNumber": "Journal Number",
+      "companyId": "Company ID",
+      "journalEntryType": "Journal Entry Type",
+      "status": "Status",
+      "transactionDate": "Transaction Date",
+      "editDateTime": "Edit Date/Time",
+      "editUserId": "Edit User ID",
+      "autoReversalDate": "Auto Reversal Date",
+      "description": "Description",
+      "postingSession": "Posting Session",
+      "sourceDocument": "Source Document",
+      "glImport": "GL Import",
+      "allocationMethodId": "Allocation Method ID",
+      "balanced": "Balanced",
+      "postedDateTime": "Posted Date/Time",
+      "posterUserId": "Poster User ID"
+    },
+    "validation": {
+      "companyRequired": "Company is required",
+      "typeRequired": "Journal entry type is required",
+      "transactionDateRequired": "Transaction date is required",
+      "descriptionRequired": "Description is required",
+      "descriptionTooLong": "Description must be 500 characters or fewer"
+    },
+    "status": {
+      "unposted": "Unposted",
+      "posted": "Posted"
+    },
+    "balance": {
+      "balanced": "Balanced",
+      "unbalanced": "unbalanced",
+      "total": "Total",
+      "difference": "Difference",
+      "totalDebits": "Total Debits",
+      "totalCredits": "Total Credits"
+    },
+    "lines": {
+      "title": "Line Items",
+      "addLine": "Add Line",
+      "deleteLine": "Delete Line",
+      "lineNumber": "#",
+      "accountCode": "Account Code",
+      "accountDescription": "Description",
+      "currency": "Currency",
+      "debit": "Debit",
+      "credit": "Credit",
+      "reference": "Reference",
+      "noLines": "No line items yet."
+    },
+    "post": {
+      "button": "Post Entry",
+      "ariaLabel": "Post this journal entry",
+      "posting": "Posting...",
+      "disabledTooltip": "Entry must be balanced before posting"
+    },
+    "nav": {
+      "first": "Go to first journal entry",
+      "previous": "Go to previous journal entry",
+      "next": "Go to next journal entry",
+      "last": "Go to last journal entry",
+      "firstShort": "First",
+      "previousShort": "Previous",
+      "nextShort": "Next",
+      "lastShort": "Last"
+    },
+    "audit": {
+      "title": "Audit Trail"
+    },
+    "list": {
+      "totalCount": "Total: {{count}}"
+    }
+  },
+  "errors": {
+    "invalidJournalId": "Invalid journal entry ID",
+    "loadEntryFailed": "Failed to load entry",
+    "loadEntriesFailed": "Failed to load entries",
+    "saveFailed": "Save failed",
+    "postFailed": "Post failed",
+    "loadLinesFailed": "Failed to load lines",
+    "lookupFailed": "Account lookup failed",
+    "saveLineFailed": "Failed to save line",
+    "updateLineFailed": "Failed to update line",
+    "deleteLineFailed": "Failed to delete line"
+  },
+  "company": {
+    "selectTitle": "Select Company",
+    "placeholder": "Select a company",
+    "ariaLabel": "Company ID"
+  },
+  "routes": {
+    "title": "Application Routes",
+    "intro": "Inventory of all routes registered in routes.tsx. Drift warnings appear below the table.",
+    "columns": {
+      "path": "Path",
+      "component": "Component",
+      "auth": "Auth",
+      "status": "Status",
+      "consumes": "BFF Endpoints"
+    },
+    "drift": {
+      "title": "Drift Warnings",
+      "missingInInventory": "Route registered but missing from ROUTE_INVENTORY:",
+      "missingInRouter": "Inventory entry has no matching router route:",
+      "none": "No drift warnings - inventory matches router exactly."
+    }
+  }
+}

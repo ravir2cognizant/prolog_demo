@@ -1,0 +1,24 @@
+{
+  "name": "prologue-bff",
+  "version": "0.1.0",
+  "sprint": "sprint-01",
+  "task": "T-005",
+  "agent": "A-05-backend-developer",
+  "generatedAt": "2026-05-21",
+  "stack": {
+    "runtime": "node@22",
+    "framework": "express@4",
+    "language": "typescript@5",
+    "validation": "zod",
+    "auth": "jose",
+    "logging": "pino",
+    "metrics": "prom-client",
+    "testing": "vitest+supertest"
+  },
+  "entrypoint": "src/server.ts",
+  "scripts": {
+    "dev": "node --env-file=.env --import tsx/esm src/server.ts",
+    "lint": "tsc --noEmit",
+    "test": "vitest run"
+  }
+}

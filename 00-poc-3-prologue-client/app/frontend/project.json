@@ -1,0 +1,55 @@
+{
+  "sprint": "sprint-01",
+  "task": "T-004",
+  "agent": "A-04",
+  "agentName": "Frontend Developer",
+  "completedAt": "2026-05-21",
+  "ciCards": ["CI-001","CI-002","CI-003","CI-004","CI-005","CI-006","CI-007","CI-008","CI-009","CI-010","CI-011","CI-012","CI-013","CI-014","CI-015","CI-016","CI-017"],
+  "stack": {
+    "framework": "React 18",
+    "bundler": "Vite 5",
+    "language": "TypeScript 5.7",
+    "routing": "React Router 7 (library mode)",
+    "styling": "Tailwind CSS 3.4",
+    "ui": "Radix UI (Dialog, Label, Select)",
+    "forms": "react-hook-form + @hookform/resolvers/zod + Zod",
+    "apiClient": "openapi-fetch",
+    "i18n": "i18next + react-i18next",
+    "mocking": "MSW v2",
+    "testing": "Vitest + @testing-library/react"
+  },
+  "routes": {
+    "real": [
+      "/journal-entries",
+      "/journal-entries/new",
+      "/journal-entries/:id",
+      "/accounts",
+      "/dev/routes"
+    ],
+    "stubs": [
+      "/approval-queue",
+      "/financial-review",
+      "/accruals-prepaid",
+      "/allocation",
+      "/report-designer",
+      "/budget",
+      "/consolidation",
+      "/fiscal-year-control",
+      "/transaction-import"
+    ]
+  },
+  "dod": {
+    "allRoutesResolve": true,
+    "reactHookFormOnForms": true,
+    "apiClientUsed": true,
+    "devRoutesPage": true,
+    "tailwindThemeMerged": true,
+    "i18nKeysInLocales": true,
+    "mswHandlersCoverCalledEndpoints": true,
+    "vitestSpecsPass": true,
+    "devServerBoots": true,
+    "noRawFetchOrAxios": true,
+    "noInlineEnglish": true,
+    "noRawHexColors": true
+  }
+}

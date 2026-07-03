@@ -1,0 +1,60 @@
+{
+  "agent": "A-04",
+  "task": "T-007",
+  "sprint": "sprint-01",
+  "reworkCycle": 1,
+  "date": "2026-05-24",
+  "findings": [
+    {
+      "id": "CR-FE-001",
+      "severity": "high",
+      "status": "implemented",
+      "description": "Migrated JEHeaderPage, JEListPage, JEFormPage from useEffect+apiClient to React Router 7 loaders (jeHeaderLoader, jeListLoader, jeFormLoader). useLoaderData() replaces useState. useRevalidator() replaces reloadKey pattern in JEHeaderPage.",
+      "files": [
+        "src/features/journal-entry/JEHeaderPage.tsx",
+        "src/features/journal-entry/JEListPage.tsx",
+        "src/features/journal-entry/JEFormPage.tsx",
+        "src/routes.tsx"
+      ]
+    },
+    {
+      "id": "CR-FE-002",
+      "severity": "high",
+      "status": "implemented",
+      "description": "Migrated JEFormPage submit to useFetcher + jeFormAction (encType: application/json). StatusAuditPanel post button migrated to useFetcher + fetcher.submit({intent:'post-entry'}); jeHeaderAction handles post-entry intent on the JEHeaderPage route. Auto-revalidation replaces onPosted callback.",
+      "files": [
+        "src/features/journal-entry/JEFormPage.tsx",
+        "src/features/journal-entry/StatusAuditPanel.tsx",
+        "src/features/journal-entry/JEHeaderPage.tsx",
+        "src/routes.tsx"
+      ]
+    },
+    {
+      "id": "CR-FE-003",
+      "severity": "medium",
+      "status": "implemented",
+      "description": "Added errors.* namespace to en.json (11 keys). All 5 hardcoded English fallback strings in LineItemsGrid replaced with t('errors.*'). Hardcoded strings in JEHeaderPage, JEListPage, JEFormPage, StatusAuditPanel eliminated by loader/action migration (errors are now thrown or returned via action data using i18n.t()). JEHeaderPage loader and jeHeaderAction use i18n.t() for fallback messages.",
+      "files": [
+        "src/locales/en.json",
+        "src/features/journal-entry/LineItemsGrid.tsx",
+        "src/features/journal-entry/JEHeaderPage.tsx",
+        "src/features/journal-entry/JEFormPage.tsx"
+      ]
+    },
+    {
+      "id": "CR-FE-004",
+      "severity": "low",
+      "status": "implemented",
+      "description": "Added je.list.totalCount key to en.json. JEListPage now uses t('je.list.totalCount', { count: totalCount }) replacing hardcoded 'Total: ' string.",
+      "files": [
+        "src/locales/en.json",
+        "src/features/journal-entry/JEListPage.tsx"
+      ]
+    }
+  ],
+  "verificationGates": {
+    "tsc": "0 errors",
+    "vitest": "44/44 pass",
+    "devBoot": "OK at :5173"
+  }
+}

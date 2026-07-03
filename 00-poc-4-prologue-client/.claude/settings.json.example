@@ -1,0 +1,57 @@
+﻿{
+  "model": "claude-sonnet-4-6",
+
+  "env": {
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-4-6",
+    "POC_WORKSPACE_ROOT": "<WORKSPACE_ROOT>"
+  },
+
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -NonInteractive -File \"<WORKSPACE_ROOT>\\agentic-pipeline\\hooks\\cost-guard.ps1\""
+          },
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -NonInteractive -File \"<WORKSPACE_ROOT>\\agentic-pipeline\\hooks\\permission-guard.ps1\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -NonInteractive -File \"<WORKSPACE_ROOT>\\agentic-pipeline\\hooks\\telemetry-log.ps1\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -NonInteractive -File \"<WORKSPACE_ROOT>\\agentic-pipeline\\hooks\\trace-rollup.ps1\""
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -NonInteractive -File \"<WORKSPACE_ROOT>\\agentic-pipeline\\hooks\\context-warn.ps1\""
+          }
+        ]
+      }
+    ]
+  }
+}

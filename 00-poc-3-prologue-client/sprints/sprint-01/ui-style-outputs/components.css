@@ -1,0 +1,248 @@
+/*
+ * components.css -- Shared utility base styles
+ * Sprint: sprint-01 | Compiled by: A-03a | 2026-05-21
+ * Scope: global helpers, not component-specific styles.
+ * A-04 should import this into the app's global CSS entry point.
+ */
+
+/* ─── CSS Custom Properties (mirrors tokens.json) ────────────────────────── */
+:root {
+  /* Primary palette */
+  --color-primary-50:  #E8EEF9;
+  --color-primary-100: #C5D3EF;
+  --color-primary-200: #9DB5E4;
+  --color-primary-300: #7196D9;
+  --color-primary-400: #4D7DD1;
+  --color-primary-500: #1B4290;
+  --color-primary-600: #173B81;
+  --color-primary-700: #12336F;
+  --color-primary-800: #0D295B;
+  --color-primary-900: #081C42;
+
+  /* Accent palette */
+  --color-accent-50:  #EBF5EC;
+  --color-accent-100: #C7E5CA;
+  --color-accent-200: #A0D4A5;
+  --color-accent-300: #76C27F;
+  --color-accent-400: #55B360;
+  --color-accent-500: #3A7D44;
+  --color-accent-600: #32703C;
+  --color-accent-700: #286132;
+
+  /* Neutral palette */
+  --color-neutral-50:  #FAFAFA;
+  --color-neutral-100: #F5F5F5;
+  --color-neutral-200: #EEEEEE;
+  --color-neutral-300: #E0E0E0;
+  --color-neutral-400: #BDBDBD;
+  --color-neutral-500: #9E9E9E;
+  --color-neutral-600: #757575;
+  --color-neutral-700: #616161;
+  --color-neutral-800: #424242;
+  --color-neutral-900: #212121;
+
+  /* State colors */
+  --color-success:       #2E7D32;
+  --color-success-light: #E8F5E9;
+  --color-warning:       #F57C00;
+  --color-warning-light: #FFF3E0;
+  --color-error:         #C62828;
+  --color-error-light:   #FFEBEE;
+  --color-info:          #0277BD;
+  --color-info-light:    #E1F5FE;
+
+  /* Typography */
+  --font-sans: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace;
+
+  /* Radii */
+  --radius-sm:   3px;
+  --radius-md:   6px;
+  --radius-lg:   8px;
+  --radius-full: 9999px;
+
+  /* Motion */
+  --duration-fast:     100ms;
+  --duration-normal:   200ms;
+  --duration-moderate: 300ms;
+  --easing-out:        cubic-bezier(0, 0, 0.2, 1);
+  --easing-in-out:     cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Reduced motion override ─────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Focus ring ──────────────────────────────────────────────────────────── */
+/*
+ * Keyboard-accessible focus ring following Fiserv Admin Tool conventions.
+ * 2px solid primary blue, 2px offset. Used on all interactive elements.
+ */
+.focus-ring:focus-visible,
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* Suppress default outline since we apply our own */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ─── Screen reader only ──────────────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Make sr-only focusable when focused (useful for skip links) */
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* ─── Typography base ─────────────────────────────────────────────────────── */
+body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-neutral-900);
+  background-color: var(--color-neutral-100);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Numeric / monospace cells ───────────────────────────────────────────── */
+/*
+ * Apply to debit/credit/amount cells in data grids (RC-002, RC-003).
+ * Right-aligned and tabular figures for clean column alignment.
+ */
+.numeric-cell {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* ─── Balance states (RC-003) ─────────────────────────────────────────────── */
+.balance-unbalanced {
+  color: var(--color-error);
+  background-color: var(--color-error-light);
+  font-weight: 600;
+}
+
+.balance-balanced {
+  color: var(--color-neutral-900);
+  font-weight: 600;
+}
+
+/* ─── Truncated text ──────────────────────────────────────────────────────── */
+.truncate-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ─── Status badges ───────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.badge-unposted {
+  background-color: var(--color-neutral-100);
+  color: var(--color-neutral-700);
+}
+
+.badge-posted {
+  background-color: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.badge-pending {
+  background-color: var(--color-warning-light);
+  color: var(--color-warning);
+}
+
+.badge-error {
+  background-color: var(--color-error-light);
+  color: var(--color-error);
+}
+
+/* ─── Read-only field ─────────────────────────────────────────────────────── */
+/*
+ * Applied to audit fields (Edit Date/Time, Posted Date/Time, etc.) — RC-001, RC-007.
+ * Visual distinction from editable inputs without using disabled styling.
+ */
+.field-readonly {
+  background-color: var(--color-neutral-50);
+  color: var(--color-neutral-700);
+  cursor: default;
+  user-select: text;
+}
+
+/* ─── Visually hidden but interactive (for custom checkboxes, radios) ─────── */
+.visually-hidden-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ─── Divider ─────────────────────────────────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-neutral-200);
+  margin: 0;
+}
+
+/* ─── Skip-to-main link (accessibility) ──────────────────────────────────── */
+.skip-to-main {
+  position: absolute;
+  top: -999px;
+  left: 0;
+  z-index: 9999;
+  padding: 8px 16px;
+  background: var(--color-primary-500);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 var(--radius-md) 0;
+}
+
+.skip-to-main:focus {
+  top: 0;
+}

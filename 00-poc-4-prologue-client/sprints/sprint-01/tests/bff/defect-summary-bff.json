@@ -1,0 +1,23 @@
+{
+  "task": "T-012",
+  "sprint": "sprint-01",
+  "date": "2026-05-24",
+  "testRunner": "vitest + supertest",
+  "totalTests": 49,
+  "numPassedTests": 49,
+  "numFailedTests": 0,
+  "numSkippedTests": 0,
+  "totalDefects": 0,
+  "byOwner": {
+    "A-05": 0,
+    "shared": 0
+  },
+  "bySeverity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "reworkRequired": false,
+  "defects": []
+}

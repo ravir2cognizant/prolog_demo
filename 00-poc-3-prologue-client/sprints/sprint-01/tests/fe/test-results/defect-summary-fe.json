@@ -1,0 +1,39 @@
+{
+  "sprint": "sprint-01",
+  "task": "T-011",
+  "tester": "A-07",
+  "date": "2026-05-21",
+  "verdict": "PASS",
+  "reworkRequired": false,
+  "totalDefects": 2,
+  "byOwner": {
+    "A-04": 1,
+    "shared": 0,
+    "test-case-bug": 1
+  },
+  "byCriticality": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 1,
+    "info": 1
+  },
+  "defectIds": ["DEF-FE-001", "DEF-FE-002"],
+  "testSuiteResults": {
+    "runner": "vitest",
+    "totalTests": 11,
+    "passed": 11,
+    "failed": 0,
+    "skipped": 0,
+    "files": 3
+  },
+  "tcCoverage": {
+    "total": 30,
+    "pass": 4,
+    "partial": 3,
+    "notRun": 21,
+    "skipped": 2,
+    "defect": 1
+  },
+  "notes": "11/11 Vitest tests pass. 1 LOW defect (DEF-FE-001, CR-004 carry-forward: missing reset() on company change, owner A-04). 1 INFO advisory (DEF-FE-002: 22/30 TC-FE cases not yet automated, owner test-case-bug). No critical/high/medium defects. E2E and a11y tests deferred (Playwright not installed). Visual regression tests deferred (automated: no). Verdict: PASS. Rework: NO."
+}

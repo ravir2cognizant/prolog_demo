@@ -1,0 +1,33 @@
+﻿{
+  "_comment": "workspace-config.sample.json -- Distribution template. Copy to workspace-config.json and set workspaceRoot.",
+  "_envOverride": "Set POC_WORKSPACE_ROOT env var to override workspaceRoot at runtime (takes precedence).",
+  "_gitignore": "Commit this sample file. Add workspace-config.json to .gitignore (it is machine-specific).",
+  "_instructions": [
+    "1. Copy this file to workspace-config.json in the same folder.",
+    "2. Replace workspaceRoot with the absolute path to your poc-workspace folder.",
+    "3. Leave all paths entries unchanged -- they are relative to workspaceRoot.",
+    "4. Windows paths: use double backslash (\\\\) as separator.",
+    "5. Mac/Linux paths: change \\\\ to / in all path values."
+  ],
+
+  "workspaceRoot": "C:\\DIPANKAR\\WORK\\00-Projects\\00-Fiserv\\00-Architecture\\09-pocs\\00-poc-4-prologue-client",
+
+  "paths": {
+    "pipeline":       "agentic-pipeline",
+    "sprints":        "sprints",
+    "app":            "app",
+    "appFrontend":    "app\\frontend",
+    "appBackend":     "app\\backend",
+    "briefings":      "agentic-pipeline\\briefings",
+    "agents":         "agentic-pipeline\\agents",
+    "agentDefs":      "agentic-pipeline\\.claude\\agents",
+    "hooks":          "agentic-pipeline\\hooks",
+    "scripts":        "agentic-pipeline\\scripts",
+    "validators":     "agentic-pipeline\\scripts\\validators",
+    "manifest":       "agentic-pipeline\\orchestrator-manifest.md",
+    "auditLog":       "agentic-pipeline\\audit-log.md",
+    "notifications":  "agentic-pipeline\\NOTIFICATIONS.md"
+  },
+
+  "sprintPathTemplate": "sprints\\sprint-{id}"
+}

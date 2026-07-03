@@ -1,0 +1,43 @@
+{
+  "_comment": "settings.local.json -- Machine-specific Claude Code permissions. Not committed to Git.",
+  "_instructions": [
+    "1. Copy this file to .claude/settings.local.json in your workspace root.",
+    "2. Replace WORKSPACE_ROOT_PATH with the absolute path to your poc-workspace folder.",
+    "3. Windows: C:\\\\path\\\\to\\\\poc-workspace   Mac/Linux: /path/to/poc-workspace",
+    "4. Add additional PowerShell allow entries as needed during your sprint runs."
+  ],
+  "permissions": {
+    "allow": [
+      "Write(WORKSPACE_ROOT_PATH\\**)",
+      "Edit(WORKSPACE_ROOT_PATH\\**)",
+      "PowerShell(New-Item -ItemType Directory *)",
+      "PowerShell(New-Item -ItemType File *)",
+      "PowerShell(Get-Content *)",
+      "PowerShell(Set-Content *)",
+      "PowerShell(Out-File *)",
+      "PowerShell(Get-ChildItem *)",
+      "PowerShell(Test-Path *)",
+      "PowerShell(Copy-Item *)",
+      "PowerShell(Move-Item *)",
+      "PowerShell(Remove-Item *)",
+      "PowerShell(Get-Location *)",
+      "PowerShell(Set-Location *)",
+      "PowerShell(Get-Item *)",
+      "PowerShell(Measure-Object *)",
+      "PowerShell(Select-Object *)",
+      "PowerShell(Where-Object *)",
+      "PowerShell(ForEach-Object *)",
+      "PowerShell(Format-Table *)",
+      "PowerShell(Sort-Object *)",
+      "PowerShell(powershell.exe -ExecutionPolicy Bypass -File *)",
+      "PowerShell(npm *)",
+      "PowerShell(npm run *)",
+      "PowerShell(npm test *)",
+      "PowerShell(npm install *)",
+      "PowerShell(npm view *)",
+      "PowerShell(Get-Process *)",
+      "PowerShell(Stop-Process *)"
+    ],
+    "deny": []
+  }
+}

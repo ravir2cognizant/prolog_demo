@@ -1,0 +1,13 @@
+﻿{
+  "name": "@poc/agentic-pipeline-scripts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared one-off scripts for the agentic delivery pipeline (review-report builder etc.). Has its own dependency set so it doesn't pollute app/backend or app/frontend.",
+  "scripts": {
+    "review-report": "node build-review-report.mjs"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  }
+}

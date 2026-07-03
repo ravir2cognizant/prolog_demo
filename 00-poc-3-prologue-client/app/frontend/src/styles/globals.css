@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-surface-background text-text-primary;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .field-readonly {
+    @apply bg-neutral-100 text-text-disabled cursor-not-allowed;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-1;
+  }
+
+  .input-base {
+    @apply w-full rounded-sm border border-border-default bg-surface-white px-3 py-2 text-base text-text-primary
+           placeholder:text-text-placeholder
+           focus:outline-none focus:border-border-focus focus:ring-1 focus:ring-border-focus
+           disabled:bg-neutral-100 disabled:text-text-disabled disabled:cursor-not-allowed
+           transition-colors duration-100;
+  }
+
+  .input-error {
+    @apply border-border-error focus:border-border-error focus:ring-border-error;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-accent-500 px-5 py-2.5
+           text-base font-semibold text-text-inverse
+           hover:bg-accent-600 active:bg-accent-700
+           disabled:bg-neutral-300 disabled:text-neutral-500 disabled:cursor-not-allowed
+           focus-ring transition-colors duration-100;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-primary-500 bg-surface-white px-5 py-2.5
+           text-base font-semibold text-primary-500
+           hover:bg-primary-50
+           disabled:border-neutral-300 disabled:text-neutral-500 disabled:cursor-not-allowed
+           focus-ring transition-colors duration-100;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-transparent px-5 py-2.5
+           text-base font-semibold text-primary-500
+           hover:bg-primary-50
+           disabled:text-neutral-500 disabled:cursor-not-allowed
+           focus-ring transition-colors duration-100;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-state-error px-5 py-2.5
+           text-base font-semibold text-text-inverse
+           hover:opacity-90
+           disabled:bg-neutral-300 disabled:text-neutral-500 disabled:cursor-not-allowed
+           focus-ring transition-colors duration-100;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-sm;
+  }
+}
